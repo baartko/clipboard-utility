@@ -22,7 +22,7 @@
     "build": "npm run build:umd && npm run build:es6",
     "build:umd": "rollup -c",
     "build:es6": "rollup -c rollup.es6.config.js",
-    "test": "eslint src"
+    "test": "eslint src && mocha ./tests"
   },
   "license": "MIT",
   "devDependencies": {
