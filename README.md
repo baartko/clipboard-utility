@@ -1,5 +1,7 @@
 # Clipboard utility
 
+[![Build Status](https://travis-ci.org/baartko/clipboard-utility.svg?branch=master)](https://travis-ci.org/baartko/clipboard-utility)
+
 ## Installation
 
 `npm i clipboard-utility --save`

@@ -5,6 +5,13 @@
   "author": "Bartłomiej Rosa <bartlomiej.rosa@gmail.com>",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
+  "scripts": {
+    "build": "npm run build:umd && npm run build:es6",
+    "build:umd": "rollup -c",
+    "build:es6": "rollup -c rollup.es6.config.js",
+    "test": "eslint src && mocha ./tests",
+    "coveralls": "./node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha -- ./tests && cat ./coverage/lcov.info | ./node_modules/.bin/coveralls"
+  },
   "keywords": [
     "clipboard",
     "copy"
@@ -18,15 +25,10 @@
     "type": "git",
     "url": "https://github.com/baartko/clipboard-utility.git"
   },
-  "scripts": {
-    "build": "npm run build:umd && npm run build:es6",
-    "build:umd": "rollup -c",
-    "build:es6": "rollup -c rollup.es6.config.js",
-    "test": "eslint src && mocha ./tests"
-  },
   "license": "MIT",
   "devDependencies": {
     "buble": "^0.19.5",
+    "coveralls": "^3.0.2",
     "eslint": "^5.7.0",
     "eslint-config-standard": "^12.0.0",
     "eslint-plugin-import": "^2.14.0",
@@ -34,6 +36,7 @@
     "eslint-plugin-promise": "^4.0.1",
     "eslint-plugin-standard": "^4.0.0",
     "expect.js": "^0.3.1",
+    "istanbul": "^0.4.5",
     "jsdom": "^12.2.0",
     "jsdom-global": "3.0.2",
     "mocha": "^5.2.0",
