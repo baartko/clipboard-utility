@@ -27,6 +27,13 @@ describe('Index', () => {
     expect(message.value).to.be.eql('CopyError')
   })
 
+  it('should exec copy in developer mode', () => {
+    const clipboardCopy = require('../src/index')
+
+    const result = clipboardCopy('important_note', null)
+    expect(result).to.only.have.keys(['type', 'value'])
+  })
+
   it('should exec all copy logic from beggining to end', () => {
     const clipboardCopy = require('../src/index')
     let cbMessage = ''
