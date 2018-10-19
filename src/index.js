@@ -67,17 +67,17 @@ function createElement () {
   return document.createElement('textarea')
 }
 
-function clipboardCopy (text, callback) {
+function clipboardCopy (text, callback, isTest) {
   const elem = createElement()
 
   // proceed
   applyStyles(elem)
   appendAndSelect(elem, text)
 
-  elem.message = exec(elem, callback)
+  const message = exec(elem, callback)
   clean(elem)
 
-  return elem
+  return isTest ? { elem, message } : message
 }
 
 module.exports = clipboardCopy
