@@ -21,17 +21,17 @@ describe('Index', () => {
     // we need throw error during process
     document.execCommand = () => { throw Error('CopyError') }
 
-    const result = clipboardCopy('important_note')
+    const { message } = clipboardCopy('important_note', null, true)
 
     // Error thrown?
-    expect(result.message.value).to.be.eql('CopyError')
+    expect(message.value).to.be.eql('CopyError')
   })
 
   it('should exec all copy logic from beggining to end', () => {
     const clipboardCopy = require('../src/index')
     let cbMessage = ''
 
-    const elem = clipboardCopy('important_note', () => (cbMessage = 'copied'))
+    const { elem, message } = clipboardCopy('important_note', () => (cbMessage = 'copied'), true)
 
     const styles = window.getComputedStyle(elem)
     const { position, border, boxShadow, background } = styles
@@ -43,7 +43,7 @@ describe('Index', () => {
     expect(background).to.be.eql('transparent')
 
     // copied value is correct?
-    expect(elem.message.value).to.be.eql('important_note')
+    expect(message.value).to.be.eql('important_note')
 
     // callback has been called?
     expect(cbMessage).to.be.eql('copied')
