@@ -7,6 +7,11 @@
 It's a utility to proceed with text copy in a browser.   
 Check below for more details.
 
+## Release notes
+If something has stopped working and you probably did update of package recently, consider checking out our releases and changes between them.
+
+Check out available markups across all the versions in our [wiki](https://github.com/baartko/clipboard-utility/wiki/Markups).
+
 ## Installation
 
 `npm i clipboard-utility --save`
@@ -18,8 +23,8 @@ There are different solutions, depnding on your needs.
 ```
 const copy = require('clipboard-utility')
 
-// Message is the result of operation, that can represent success or error structure.
-const { message } = copy('test')
+// Result of operation, that can represent success or error structure.
+const result = copy('test')
 
 // Copy message and as a callback get result.
 copy('test', ({ type, value }) => {
