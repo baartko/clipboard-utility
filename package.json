@@ -1,6 +1,6 @@
 {
   "name": "clipboard-utility",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A utility to proceed with text copy in a browser.",
   "author": "Bartłomiej Rosa <bartlomiej.rosa@gmail.com>",
   "main": "dist/index.js",
