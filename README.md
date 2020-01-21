@@ -18,19 +18,24 @@ Check out available markups across all the versions in our [wiki](https://github
 
 ## How to use
 
-There are different solutions, depnding on your needs.
+There are 2 ways to use that.
+
+`const copy = require('clipboard-utility')`
+
+> Use destructuring to get properties
+
+`const { success, value } = require('clipboard-utility')`
+
+> Use callback to provide an action, after copy process is done
 
 ```
-const copy = require('clipboard-utility')
-
-// Result of operation, that can represent success or error structure.
-const result = copy('test')
-
-// Copy message and as a callback get result.
-copy('test', ({ type, value }) => {
-  if (type === 'error') {
-    console.error(value)
+copy('reloadToURL', ({ success, value }) => {
+  if (!success) {
+    // early quit
   }
+
+  // e.g
+  history.push({ pathname: value })
 })
 ```
 
@@ -44,7 +49,7 @@ Returned when copy execution is proceeded flawlessly.
 
 ```
 {
-  type: 'success',
+  sucess: false,
   value: 'Message that actually has been copied'
 }
 ```
@@ -54,7 +59,7 @@ Returned when copy execution has failed at some point.
 
 ```
 {
-  type: 'error',
+  type: false,
   value: 'Error message that has been thrown'
 }
 ```

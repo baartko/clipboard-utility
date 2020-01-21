@@ -31,7 +31,7 @@ describe('Index', () => {
     const clipboardCopy = require('../src/index')
 
     const result = clipboardCopy('important_note', null)
-    expect(result).to.only.have.keys(['type', 'value'])
+    expect(result).to.only.have.keys(['success', 'value'])
   })
 
   it('should exec all copy logic from beggining to end', () => {

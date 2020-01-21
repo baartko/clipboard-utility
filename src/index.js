@@ -40,11 +40,11 @@ function applyStyles (el) {
  * @param {object} params
  */
 function exec (elem, callback) {
-  let o = { type: 'success', value: elem.value }
+  let o = { success: true, value: elem.value }
   try {
     document.execCommand('copy')
   } catch (err) {
-    o = { type: 'error', value: err.message }
+    o = { success: false, value: err.message }
   } finally {
     callback && callback(o)
   }
@@ -67,7 +67,7 @@ function createElement () {
   return document.createElement('textarea')
 }
 
-function clipboardCopy (text, callback, isTest) {
+function clipboardCopy (text, callback, attachElem = false) {
   const elem = createElement()
 
   // proceed
@@ -77,7 +77,7 @@ function clipboardCopy (text, callback, isTest) {
   const message = exec(elem, callback)
   clean(elem)
 
-  return isTest ? { elem, message } : message
+  return attachElem ? { elem, message } : message
 }
 
 module.exports = clipboardCopy
