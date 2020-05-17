@@ -4,7 +4,9 @@
 [![Maintainability](https://api.codeclimate.com/v1/badges/8c657f21a8d7d27b735a/maintainability)](https://codeclimate.com/github/baartko/clipboard-utility/maintainability)
 [![Coverage Status](https://coveralls.io/repos/github/baartko/clipboard-utility/badge.svg?branch=master)](https://coveralls.io/github/baartko/clipboard-utility?branch=master)
 
-It's a utility to proceed with text copy in a browser.   
+It's a utility to proceed with text copy in a browser.  
+It's LESS than 1KB and NO DEPENDENCIES.
+
 Check below for more details.
 
 ## Release notes
@@ -18,18 +20,18 @@ Check out available markups across all the versions in our [wiki](https://github
 
 ## How to use
 
-There are 2 ways to use that.
-
-`const copy = require('clipboard-utility')`
-
-> Use destructuring to get properties
-
-`const { success, value } = require('clipboard-utility')`
-
-> Use callback to provide an action, after copy process is done
-
+__1st scenario__
 ```
-copy('reloadToURL', ({ success, value }) => {
+const copy = require('clipboard-utility')`
+const text = copy('something to be copied!')
+
+text -> { success: true, value: 'something to be copied!' }
+```
+
+__2nd scenario__
+```
+const copy = require('clipboard-utility')`
+const text = copy('something to be copied!', ({ success, value }) => {
   if (!success) {
     // early quit
   }
@@ -38,6 +40,8 @@ copy('reloadToURL', ({ success, value }) => {
   history.push({ pathname: value })
 })
 ```
+
+In both scenarios, value is placed in a __CLIPBOARD__  .
 
 ## Response
 

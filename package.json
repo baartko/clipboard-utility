@@ -1,7 +1,7 @@
 {
   "name": "clipboard-utility",
   "version": "1.0.3",
-  "description": "A utility to proceed with text copy in a browser.",
+  "description": "A REALLY LIGHTWEIGHT utility to proceed with text copy in a browser. Less than 1KB",
   "author": "Bartłomiej Rosa <bartlomiej.rosa@gmail.com>",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
